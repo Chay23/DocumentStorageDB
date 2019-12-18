@@ -1,3 +1,3 @@
 # DocumentStorageDB
 
-![ER diagram](ER diagram.png)
+![ER diagram](ER_diagram.png)
