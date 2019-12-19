@@ -179,7 +179,6 @@ SELECT * FROM documents WHERE documents.creation_date > '2019-12-01';
 # Створення тригеру.
 
 ```
-
 DELIMITER |
 CREATE TRIGGER trigger_update_register BEFORE UPDATE ON documents_in_process
   FOR EACH ROW
@@ -191,3 +190,20 @@ DELIMITER ;
 
 ```
 Даний тригер буде реагувати на обновлення в таблиці "Documents_in_Process" і апдейтити стан документа з одинаковим ідентифікаційним номером в таблиці "Registers".
+
+#### Демонстрація 
+
+Таблиці "Documents_in_Process" і "Registers" до виконання UPDATE.
+
+### Documents_in_Process
+
+| document_id | register_id | staff | current_state|
+| --- | --- | --- | --- |
+| 4 | 5 | Венгрович Андрій Антонович | **1** |
+
+### Registers 
+
+| register_id | document_id | document_author_id | registration_date | documnet_state |
+| 4 | 5 | 8 | 2019-12-20 | **1** | 2 |
+
+
