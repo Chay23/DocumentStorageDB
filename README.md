@@ -117,7 +117,7 @@
   
 # SQL запити на прикладі даної бази даних.
 
-### + Обрати всі документи які були погодженні. 
++ ### Обрати всі документи які були погодженні. 
 
 ```
 SELECT documents.name ,authors.author_name, documents_in_process.register_id,documents_in_process.current_state
