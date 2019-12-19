@@ -120,13 +120,15 @@
 + ### Обрати всі документи які були погодженні. 
 
 ```
-SELECT documents.name ,authors.author_name, documents_in_process.register_id,documents_in_process.current_state
-FROM documents_in_process JOIN documents ON documents.id = documents_in_process.document_id JOIN authors ON authors.author_id = documents.author_id WHERE documents_in_process.current_state = 3;
+SELECT documents.name ,authors.author_name, registers.register_id,states.state_name
+FROM registers JOIN documents ON documents.id = registers.document_id JOIN authors ON authors.author_id = documents.author_id JOIN states ON registers.document_state = states.state_id WHERE registers.document_state = 3;
+
 
 ```
 #### Результат
 
 | name | author_name | register_id |state_name |
+|------|-------------|-------------|-----------|
 | Заява на отримання соціальної стипендії | Дєєв Сергій Сергійович | 2 | Підтверджено |
 | Заява на видачу дубліката залікової книжки | Зюбіна Анна Володимирівна | 1 | Підтверджено |
 | Пояснювальна записка | Артюхов Роман Вячеславович | 5 | Підтверджено |
