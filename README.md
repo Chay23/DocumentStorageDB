@@ -175,3 +175,19 @@ SELECT * FROM documents WHERE documents.creation_date > '2019-12-01';
 | 3 | Заява на відрахування із числа студентів за власним бажанням | 2019-12-17 |5 | 1 | група ІПЗ-3 |
 | 4 | Доповідна записка про відрядження | 2019-12-18 | 8 | 5 | - |
 | 5 | Пояснювальна записка | 2019-12-18 | 1 | 2 | група А-13 |
+
+# Створення тригеру.
+
+```
+
+DELIMITER |
+CREATE TRIGGER trigger_update_register BEFORE UPDATE ON documents_in_process
+  FOR EACH ROW
+BEGIN
+    UPDATE registers SET registers.document_state = NEW.current_state WHERE NEW.document_id = registers.register_id;
+  END
+|
+DELIMITER ;
+
+```
+Даний тригер буде реагувати на обновлення в таблиці "Documents_in_Process" і апдейтити стан документа з одинаковим ідентифікаційним номером в таблиці "Registers".
