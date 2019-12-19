@@ -191,19 +191,39 @@ DELIMITER ;
 ```
 Даний тригер буде реагувати на обновлення в таблиці "Documents_in_Process" і апдейтити стан документа з одинаковим ідентифікаційним номером в таблиці "Registers".
 
-#### Демонстрація 
+### Демонстрація 
 
 Таблиці "Documents_in_Process" і "Registers" до виконання UPDATE.
 
-### Documents_in_Process
++ ### Documents_in_Process
 
 | document_id | register_id | staff | current_state|
 | --- | --- | --- | --- |
-| 4 | 5 | Венгрович Андрій Антонович | **1** |
+| 4 | 5 | Венгринович Андрій Антонович | **1** |
 
-### Registers 
++ ### Registers 
 
 | register_id | document_id | document_author_id | registration_date | documnet_state |
+| --- | --- | --- | --- | --- |
 | 4 | 5 | 8 | 2019-12-20 | **1** | 2 |
 
+Таблиці "Documents_in_Process" і "Registers" після виконання UPDATE.
+
+```
+UPDATE documents_in_process
+SET documents_in_process.current_state = 2
+WHERE document_id = 4;
+
+```
++ ### Documents_in_Process
+
+| document_id | register_id | staff | current_state|
+| --- | --- | --- | --- |
+| 4 | 5 | Венгринович Андрій Антонович | **2** |
+
++ ### Registers 
+
+| register_id | document_id | document_author_id | registration_date | documnet_state |
+| --- | --- | --- | --- | --- |
+| 4 | 5 | 8 | 2019-12-20 | **2** | 2 |
 
