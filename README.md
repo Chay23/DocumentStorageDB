@@ -1,6 +1,6 @@
 # Зберігання службових документів
 
-![ER diagram](ER_diagram.png)
+![ER diagram](ER_Diagram.png)
 
 # Опис таблиць бази даних
 
