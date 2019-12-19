@@ -148,4 +148,18 @@ JOIN document_types on documents.document_type = document_types.type_id WHERE do
 | Заява на видачу дубліката залікової книжки | 2019-09-20 | Заява |
 | Заява на відрахування із числа студентів за власним бажанням | 2019-12-17 | Заява |
 
++ #### Вивести назви журналів і документів, які належать до факультету математики та інформатики.
+
+```
+SELECT categories.category_name,documents.name,faculties.faculty_name from registers JOIN categories
+ON registers.register_id = categories.category_id JOIN documents ON registers.document_id = documents.id JOIN faculties ON registers.faculty_id = faculties.faculty_id WHERE faculties.faculty_id = 1;
+
+```
+
+| category_name | name | faculty_name |
+| --- | --- | --- |
+| Журнал для заяв студентів 3-го курсу кафедри інформаційних технологій | Заява на видачу дубліката залікової книжки | Факультет математики та інформатики |
+| Журнал для заяв студентів 3-го курсу кафедри інформаційних технологій | Заява на відрахування із числа студентів за власним бажанням | Факультет математики та інформатики |
+| Журнал для заяв студентів 3-го курсу кафедри диференціальних рівнянь і прикладної математики | Заява на отримання соціальної стипендії | Факультет математики та інформатики |
+
 
