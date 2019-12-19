@@ -133,5 +133,19 @@ FROM registers JOIN documents ON documents.id = registers.document_id JOIN autho
 | Заява на видачу дубліката залікової книжки | Зюбіна Анна Володимирівна | 1 | Підтверджено |
 | Пояснювальна записка | Артюхов Роман Вячеславович | 5 | Підтверджено |
  
++ ### Обрати всі документи, вид яких - заява.
+
+```
+SELECT documents.name , documents.creation_date , document_types.type_name FROM documents
+JOIN document_types on documents.document_type = document_types.type_id WHERE document_types.type_name = 'Заява';
+
+```
+#### Результат 
+
+| name | creation_date | type_name |
+|---|---|---|
+| Заява на отримання соціальної стипендії | 2019-09-20 | Заява |
+| Заява на видачу дубліката залікової книжки | 2019-09-20 | Заява |
+| Заява на відрахування із числа студентів за власним бажанням | 2019-12-17 | Заява |
 
 
