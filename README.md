@@ -106,13 +106,21 @@
 
 ## Стани
 
-Таблиця "Стани" містить наступні дані:
-+ ідентифікаційний номер стану;
-+ ім'я стану.
+...Таблиця "Стани" містить наступні дані:
+... + ідентифікаційний номер стану;
+... + ім'я стану.
 
   |     |States        | 
   |-----|--------------|
   | PK  | state_id     |
   |     | state_name   |
   
-  
+# SQL запити на прикладі даної бази даних.
+
+## Обрати
+
+```
+SELECT documents.name ,authors.author_name, documents_in_process.register_id,documents_in_process.current_state
+FROM documents_in_process JOIN documents ON documents.id = documents_in_process.document_id JOIN authors ON authors.author_id = documents.author_id WHERE documents_in_process.current_state = 3;
+
+```
