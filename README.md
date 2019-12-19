@@ -227,3 +227,25 @@ WHERE document_id = 4;
 | --- | --- | --- | --- | --- |
 | 4 | 5 | 8 | 2019-12-20 | `2` | 2 |
 
+# View
+
+Створюємо VIEW де вибираємо назви документів, дату створення і їх вид:
+
+```
+CREATE VIEW show_name_creat_date_type AS
+SELECT documents.name , documents.creation_date , document_types.type_name FROM documents
+JOIN document_types on documents.document_type = document_types.type_id;
+
+```
+
+Виберемо із VIEW всі документи вид яких - заява:
+
+```
+SELECT * FROM show_name_creat_date_type WHERE type_name = 'Заява';
+```
+
+| name | creation_date | type_name |
+|---|---|---|
+| Заява на отримання соціальної стипендії | 2019-09-20 | Заява |
+| Заява на видачу дубліката залікової книжки | 2019-09-20 | Заява |
+| Заява на відрахування із числа студентів за власним бажанням | 2019-12-17 | Заява |
